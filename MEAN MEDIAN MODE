@@ -1,0 +1,55 @@
+import java.util.*;
+public class MeanMedianMode {
+    public static void main(String[] args) {
+        double[] numbers = {10, 5, 2, 7, 5, 3, 7, 8, 9, 3};
+
+        double mean = findMean(numbers);
+        double median = findMedian(numbers);
+        double mode = findMode(numbers);
+
+        System.out.println("Mean: " + mean);
+        System.out.println("Median: " + median);
+        System.out.println("Mode: " + mode);
+    }
+
+    public static double findMean(double[] numbers) {
+        double sum = 0;
+        for (double num : numbers) {
+            sum += num;
+        }
+        return sum / numbers.length;
+    }
+
+    public static double findMedian(double[] numbers) {
+        Arrays.sort(numbers);
+        int n = numbers.length;
+        if (n % 2 == 0) {
+     
+            return (numbers[n / 2 - 1] + numbers[n / 2]) / 2.0;
+        } else {
+           
+            return numbers[n / 2];
+        }
+    }
+
+    public static double findMode(double[] numbers) {
+        Map<Double, Integer> countMap = new HashMap<>();
+        double mode = numbers[0];
+        int maxCount = 1;
+
+        for (double num : numbers) {
+            if (countMap.containsKey(num)) {
+                int count = countMap.get(num) + 1;
+                countMap.put(num, count);
+                if (count > maxCount) {
+                    maxCount = count;
+                    mode = num;
+                }
+            } else {
+                countMap.put(num, 1);
+            }
+        }
+
+        return mode;
+    }
+}
