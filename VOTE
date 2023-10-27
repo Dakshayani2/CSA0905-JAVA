@@ -1,21 +1,21 @@
-import java.util.Scanner;
+import java.util.*;
+public class VoteEligibility 
+  {
+    public static void main(String args[]) 
+    {
+        Scanner s= new Scanner(System.in);
 
-public class OddEvenChecker {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an integer: ");
-        int number = scanner.nextInt();
+        System.out.print("Enter your age: ");
+        int age = s.nextInt();
 
-        if (isEven(number)) {
-            System.out.println(number + " is an even number.");
-        } else {
-            System.out.println(number + " is an odd number.");
+        if (age >= 18)
+        {
+            System.out.println("You are eligible to vote.");
+        } 
+          else 
+          {
+            int yearsToGo = 18 - age;
+            System.out.println("You are not eligible to vote. You will be eligible in " + yearsToGo + " years.");
         }
-
-        scanner.close();
-    }
-
-    public static boolean isEven(int number) {
-        return number % 2 == 0;
     }
 }
