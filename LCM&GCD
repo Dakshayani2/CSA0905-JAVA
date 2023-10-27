@@ -1,0 +1,45 @@
+import java.util.*;
+public class LCMandGCD {
+    public static void main(String[] args) {
+       
+        int[] numbers = {12, 18, 24}
+        long lcm = findLCM(numbers);
+        System.out.println("LCM: " + lcm);
+
+
+        int gcd = findGCD(numbers);
+        System.out.println("GCD: " + gcd);
+    }
+
+
+    public static long findLCM(int[] numbers) {
+        long result = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            result = lcm(result, numbers[i]);
+        }
+        return result;
+    }
+
+   
+    public static int findGCD(int[] numbers) {
+        int result = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            result = gcd(result, numbers[i]);
+        }
+        return result;
+    }
+
+    
+    public static long lcm(long a, long b) {
+        return a * (b / gcd(a, b));
+    }
+
+   
+    public static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return gcd(b, a % b);
+        }
+    }
+}
