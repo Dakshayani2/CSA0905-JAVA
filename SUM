@@ -1,0 +1,25 @@
+import java.util.*;
+class Summ
+{
+public static void main(String arg[])
+{
+try{
+Scanner s=new Scanner(System.in);
+int a,sum=0;
+System.out.println("enter total number of elements:");
+a=s.nextInt();
+int arr[]=new int[2];
+System.out.println("enter elements:");
+for(int i=0;i<=a;i++){
+arr[i]=s.nextInt();
+}
+for(int i=0;i<a;i++){
+sum=sum+arr[i];
+}
+System.out.println(+sum);
+}
+catch(Exception e){
+System.out.println(e);
+}
+}
+}
