@@ -1,0 +1,49 @@
+import java.util.Scanner;
+class Fibonacci extends Thread {
+    int n;
+    Fibonacci(int x) {
+        n = x;
+    }
+
+    public void run() {
+        int t1 = 0, t2 = 1;
+        System.out.print("Fibonacci Series of "+n+" numbers: ");
+
+        for (int i = 1; i <= n; ++i) {
+            System.out.print(t1 + " ");
+
+            int sum = t1 + t2;
+            t1 = t2;
+            t2 = sum;
+        }
+    }
+}
+
+  class Reverse extends Thread{
+int r;
+Reverse(int y){
+r=y;
+}
+public void run(){
+ System.out.print("Reverse of "+r+" numbers: ");
+       for (int i = 10; i >= n; --i) {
+System.out.println("output="+r);
+}
+}
+
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the number of terms for the Fibonacci series: ");
+        int n = s.nextInt();
+        System.out.println("Enter the numbers for reverse order: ");
+        int r = s.nextInt();
+
+        Fibonacci obj = new Fibonacci(n);
+        fibonacci.start();
+        Reverse obj=new Reverse(r);
+        Reverse.start();
+    }
+
+}
+
